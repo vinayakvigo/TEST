@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.content.pm.ServiceInfo;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.IBinder;
@@ -43,7 +44,11 @@ public class ForgroundService extends Service {
             Notification notification = createNotification();
 
             // Start the service in the foreground with the notification
-            startForeground(1, notification);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                startForeground(1, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK);
+            } else {
+                startForeground(1, notification);
+            }
         }catch (Error e){
             Log.e("ERROR", "onStartCommand: "+e.toString() );
         }
