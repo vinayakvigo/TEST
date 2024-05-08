@@ -5,15 +5,25 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.Task_list"
+    tools:context=".main.Task3.services"
     android:orientation="vertical"
-    android:layout_marginTop="43dp">
+    android:layout_marginTop="50dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Background services"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_marginLeft="62dp">
+
+    </TextView>
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:id="@+id/t1"
-        android:text="Day 1"
+        android:id="@+id/t3StartService"
+        android:text="Start Service"
         style="@style/Widget.Material3.Button"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
@@ -27,8 +37,35 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:id="@+id/t2"
-        android:text="Day 2"
+        android:id="@+id/t3StopService"
+        android:text="Stop Service"
+        style="@style/Widget.Material3.Button"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/white"
+        android:textSize="19dp"
+        android:textStyle="bold">
+
+    </com.google.android.material.button.MaterialButton>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forground services"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="25dp">
+
+    </TextView>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@+id/t32StartService"
+        android:text="Start Service"
         style="@style/Widget.Material3.Button"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
@@ -42,8 +79,8 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:id="@+id/t3"
-        android:text="Day 3"
+        android:id="@+id/t32StopService"
+        android:text="Stop Service"
         style="@style/Widget.Material3.Button"
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
