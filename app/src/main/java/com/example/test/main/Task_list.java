@@ -30,6 +30,7 @@ public class Task_list extends AppCompatActivity {
             return insets;
         });
         SetUpId();
+
         task1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
