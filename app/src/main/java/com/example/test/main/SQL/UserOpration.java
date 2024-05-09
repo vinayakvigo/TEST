@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class UserOpration {
 
@@ -68,6 +69,24 @@ public class UserOpration {
         db.delete("users", selection, selectionArgs);
         db.close();
     }
+
+    public void updateUser(int id, String newFirstName, String newLastName, String newEmail) {
+        try{
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put("first_name", newFirstName);
+            values.put("last_name", newLastName);
+            values.put("email", newEmail);
+            String selection = "id=?";
+            String[] selectionArgs = {String.valueOf(id)};
+            db.update("users", values, selection, selectionArgs);
+            db.close();
+        }catch (Error e){
+            Log.e("TAG", "updateUser: ", e);
+        }
+
+    }
+
 
 
 }
