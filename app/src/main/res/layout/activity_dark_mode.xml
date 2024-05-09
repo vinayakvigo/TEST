@@ -20,7 +20,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
