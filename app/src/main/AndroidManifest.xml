@@ -21,6 +21,9 @@
         tools:ignore="ForegroundServicePermission"
         tools:targetApi="31">
         <activity
+            android:name=".main.Task5.Multilanguage"
+            android:exported="false" />
+        <activity
             android:name=".main.Task4.darkMode"
             android:exported="false" />
 

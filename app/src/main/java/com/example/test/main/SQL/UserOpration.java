@@ -61,4 +61,13 @@ public class UserOpration {
         // Return true if the ID exists, false otherwise
         return exists;
     }
+    public void deleteUser(int id) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        String selection = "id=?";
+        String[] selectionArgs = {String.valueOf(id)};
+        db.delete("users", selection, selectionArgs);
+        db.close();
+    }
+
+
 }

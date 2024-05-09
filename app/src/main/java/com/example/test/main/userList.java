@@ -37,7 +37,7 @@ public class userList extends AppCompatActivity {
         // Retrieve data from SQLite database and set it to RecyclerView
         Cursor cursor = op.getAllUsers();
 
-        userAdapter = new UserAdapter(cursor);
+        userAdapter = new UserAdapter(cursor,userList.this);
         recyclerView.setAdapter(userAdapter);
     }
 }
