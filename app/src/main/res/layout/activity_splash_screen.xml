@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.Task6.SplashScreen"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="270dp"
+        android:layout_height="350dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="85dp"
+        android:layout_gravity="center">
+
+    </ImageView>
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="25dp"
+    android:layout_marginRight="25dp"
+    android:layout_marginTop="60dp"
+    android:indeterminate="true"
+    />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="28dp"
+        android:text="Welcome To My Task"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginTop="60dp"
+        android:layout_gravity="center">
+
+    </TextView>
+
+</LinearLayout>

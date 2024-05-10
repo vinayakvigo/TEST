@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.database.Cursor;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     private Cursor cursor;
     Context context;
+    AlertDialog dialog;
 
     public UserAdapter(Cursor cursor,Context context) {
         this.cursor = cursor;
@@ -100,38 +102,43 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             String newFirstName = editTextFirstName.getText().toString().trim();
             String newLastName = editTextLastName.getText().toString().trim();
             String newEmail = editTextEmail.getText().toString().trim();
+            if (TextUtils.isEmpty(newFirstName) || TextUtils.isEmpty(newLastName) || TextUtils.isEmpty(newEmail)) {
+                // Display error message to the user
+                Toast.makeText(context, "Please enter all fields", Toast.LENGTH_SHORT).show();
+               // return ; // Stop further processing
+            }else {
+                // Perform update operation in the database
+                UserOpration op = new UserOpration(context);
+                try{
+                    ProgressDialog progressDialog = new ProgressDialog(context);
+                    progressDialog.setMessage("Updating...");
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
 
-            // Perform update operation in the database
-            UserOpration op = new UserOpration(context);
-            try{
-                ProgressDialog progressDialog = new ProgressDialog(context);
-                progressDialog.setMessage("Updating...");
-                progressDialog.setCancelable(false);
-                progressDialog.show();
+                    new Thread(() -> {
+                        op.updateUser(position+1, newFirstName, newLastName, newEmail);
+                        cursor = op.getAllUsers();
 
-                new Thread(() -> {
-                    op.updateUser(position+1, newFirstName, newLastName, newEmail);
-                    cursor = op.getAllUsers();
-                    // Perform update operation in the background
-                    // Update user details in the SQLite database
-                    // This is where you should call your UserOperation.updateUser() method
-                    // Make sure to handle any errors or exceptions that may occur during the update process
+                        ((Activity) context).runOnUiThread(() -> {
+                            progressDialog.dismiss();
+                            notifyDataSetChanged();
+                        });
+                    }).start();
 
-                    ((Activity) context).runOnUiThread(() -> {
-                        progressDialog.dismiss();
-                        notifyDataSetChanged();
-                    });
-                }).start();
-
-            }catch (Error e){
-                Log.i("TAG", "editUser: "+ e.toString());
+                }catch (Error e){
+                    Log.i("TAG", "editUser: "+ e.toString());
+                }finally {
+                    dialog.dismiss();
+                }
             }
+
+
 
         });
 
         builder.setNegativeButton("Cancel", null);
 
-        AlertDialog dialog = builder.create();
+         dialog = builder.create();
         dialog.show();
     }
 
