@@ -21,6 +21,9 @@
         tools:ignore="ForegroundServicePermission"
         tools:targetApi="31">
         <activity
+            android:name=".main.task10.Task10"
+            android:exported="false" />
+        <activity
             android:name=".main.Task9.Notification"
             android:exported="false" />
         <activity
