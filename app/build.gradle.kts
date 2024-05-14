@@ -1,8 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.gms.google-services")
+    //alias(libs.plugins.google.firebase.crashlytics)
     // Add the Crashlytics Gradle plugin
-    id ("com.google.firebase.crashlytics")
+    //id ("com.google.firebase.crashlytics")
 }
 
 android {
@@ -42,15 +43,22 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.firebase.database)
+    implementation(libs.firebase.auth)
+    //implementation(libs.firebase.crashlytics)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
     // firebase
-    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
-    implementation("com.google.firebase:firebase-analytics")
+    //-implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
+    //-implementation("com.google.firebase:firebase-analytics")
     // firebase crash analytics
-    implementation("com.google.firebase:firebase-crashlytics")
+    //-implementation("com.google.firebase:firebase-crashlytics")
+    //-implementation("com.google.firebase:firebase-crashlytics-ndk")
+
     // volley
     implementation("com.android.volley:volley:1.2.1")
+    //implementation ("com.google.firebase:firebase-database:15.0.0")
+    //implementation ("com.google.firebase:firebase-auth:15.1.0")
 }

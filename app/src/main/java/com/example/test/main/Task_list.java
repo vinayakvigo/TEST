@@ -17,10 +17,11 @@ import com.example.test.main.Task4.darkMode;
 import com.example.test.main.Task5.Multilanguage;
 import com.example.test.main.Task7.CrashTest;
 import com.example.test.main.Task8.RealtimeDatabase;
+import com.example.test.main.Task9.Notification;
 import com.google.android.material.button.MaterialButton;
 
 public class Task_list extends AppCompatActivity {
-    MaterialButton task1,task2,task3,task4,task5,task7,task8;
+    MaterialButton task1,task2,task3,task4,task5,task7,task8,task9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +80,12 @@ public class Task_list extends AppCompatActivity {
                 startActivity(new Intent(Task_list.this, RealtimeDatabase.class));
             }
         });
+        task9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Task_list.this, Notification.class));
+            }
+        });
 
 
     }
@@ -91,6 +98,7 @@ public class Task_list extends AppCompatActivity {
         task5 = findViewById(R.id.t5);
         task7 = findViewById(R.id.t7);
         task8 = findViewById(R.id.t8);
+        task9 = findViewById(R.id.t9);
 
     }
 }
