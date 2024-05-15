@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.test.R;
+import com.example.test.main.Task11.getImages;
 import com.example.test.main.Task2.task_tow;
 import com.example.test.main.Task3.services;
 import com.example.test.main.Task4.darkMode;
@@ -22,7 +23,7 @@ import com.example.test.main.task10.Task10;
 import com.google.android.material.button.MaterialButton;
 
 public class Task_list extends AppCompatActivity {
-    MaterialButton task1,task2,task3,task4,task5,task7,task8,task9,task10;
+    MaterialButton task1,task2,task3,task4,task5,task7,task8,task9,task10,task11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +94,12 @@ public class Task_list extends AppCompatActivity {
                 startActivity(new Intent(Task_list.this, Task10.class));
             }
         });
+        task11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Task_list.this, getImages.class));
+            }
+        });
 
 
     }
@@ -107,6 +114,7 @@ public class Task_list extends AppCompatActivity {
         task8 = findViewById(R.id.t8);
         task9 = findViewById(R.id.t9);
         task10 = findViewById(R.id.t10);
+        task11 = findViewById(R.id.t11);
 
     }
 }
