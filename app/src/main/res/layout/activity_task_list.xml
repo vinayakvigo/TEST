@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,159 +9,193 @@
     android:layout_height="match_parent"
     tools:context=".main.Task_list"
     android:orientation="vertical"
-    android:layout_marginTop="43dp">
+    android:layout_marginTop="43dp"
+    android:scrollbars="vertical">
 
-    <com.google.android.material.button.MaterialButton
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:id="@+id/t1"
-        android:text="Day 1"
-        style="@style/Widget.Material3.Button"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/white"
-        android:textSize="19dp"
-        android:textStyle="bold">
+        android:layout_height="wrap_content">
 
-    </com.google.android.material.button.MaterialButton>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:id="@+id/t2"
-        android:text="Day 2"
-        style="@style/Widget.Material3.Button"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/white"
-        android:textSize="19dp"
-        android:textStyle="bold">
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/t1"
+                android:text="Day 1"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                android:textStyle="bold">
 
-    </com.google.android.material.button.MaterialButton>
+            </com.google.android.material.button.MaterialButton>
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:id="@+id/t3"
-        android:text="Day 3"
-        style="@style/Widget.Material3.Button"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/white"
-        android:textSize="19dp"
-        android:textStyle="bold">
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/t2"
+                android:text="Day 2"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                android:textStyle="bold">
 
-    </com.google.android.material.button.MaterialButton>
+            </com.google.android.material.button.MaterialButton>
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:id="@+id/t4"
-        android:text="Day 4"
-        style="@style/Widget.Material3.Button"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/white"
-        android:textSize="19dp"
-        android:textStyle="bold">
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/t3"
+                android:text="Day 3"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                android:textStyle="bold">
 
-    </com.google.android.material.button.MaterialButton>
+            </com.google.android.material.button.MaterialButton>
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:id="@+id/t5"
-        android:text="Day 5"
-        style="@style/Widget.Material3.Button"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/white"
-        android:textSize="19dp"
-        android:textStyle="bold">
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/t4"
+                android:text="Day 4"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                android:textStyle="bold">
 
-    </com.google.android.material.button.MaterialButton>
+            </com.google.android.material.button.MaterialButton>
 
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/t5"
+                android:text="Day 5"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                android:textStyle="bold">
 
-
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:id="@+id/t7"
-        android:text="Day 7"
-        style="@style/Widget.Material3.Button"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/white"
-        android:textSize="19dp"
-        android:textStyle="bold">
-
-    </com.google.android.material.button.MaterialButton>
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:id="@+id/t8"
-        android:text="Day 8"
-        style="@style/Widget.Material3.Button"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/white"
-        android:textSize="19dp"
-        android:textStyle="bold">
-
-    </com.google.android.material.button.MaterialButton>
+            </com.google.android.material.button.MaterialButton>
 
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:id="@+id/t9"
-        android:text="Day 9"
-        style="@style/Widget.Material3.Button"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/white"
-        android:textSize="19dp"
-        android:textStyle="bold">
 
-    </com.google.android.material.button.MaterialButton>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/t7"
+                android:text="Day 7"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                android:textStyle="bold">
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:id="@+id/t10"
-        android:text="Day 10"
-        style="@style/Widget.Material3.Button"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/white"
-        android:textSize="19dp"
-        android:textStyle="bold">
+            </com.google.android.material.button.MaterialButton>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/t8"
+                android:text="Day 8"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                android:textStyle="bold">
 
-    </com.google.android.material.button.MaterialButton>
+            </com.google.android.material.button.MaterialButton>
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:id="@+id/t11"
-        android:text="Day 11"
-        style="@style/Widget.Material3.Button"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/white"
-        android:textSize="19dp"
-        android:textStyle="bold">
 
-    </com.google.android.material.button.MaterialButton>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/t9"
+                android:text="Day 9"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                android:textStyle="bold">
+
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/t10"
+                android:text="Day 10"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                android:textStyle="bold">
+
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/t11"
+                android:text="Day 11"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                android:textStyle="bold">
+
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:id="@+id/t12"
+                android:text="Day 12"
+                style="@style/Widget.Material3.Button"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="25dp"
+                android:textColor="@color/white"
+                android:textSize="19dp"
+                android:textStyle="bold">
+
+            </com.google.android.material.button.MaterialButton>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
 
 
 </LinearLayout>

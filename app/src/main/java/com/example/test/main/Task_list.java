@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.test.R;
 import com.example.test.main.Task11.getImages;
+import com.example.test.main.Task12.AelrtDilogBox;
 import com.example.test.main.Task2.task_tow;
 import com.example.test.main.Task3.services;
 import com.example.test.main.Task4.darkMode;
@@ -23,7 +24,7 @@ import com.example.test.main.task10.Task10;
 import com.google.android.material.button.MaterialButton;
 
 public class Task_list extends AppCompatActivity {
-    MaterialButton task1,task2,task3,task4,task5,task7,task8,task9,task10,task11;
+    MaterialButton task1,task2,task3,task4,task5,task7,task8,task9,task10,task11,task12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +102,9 @@ public class Task_list extends AppCompatActivity {
             }
         });
 
+        task12.setOnClickListener(v -> {startActivity(new Intent(Task_list.this, AelrtDilogBox.class));});
+
+
 
     }
 
@@ -115,6 +119,7 @@ public class Task_list extends AppCompatActivity {
         task9 = findViewById(R.id.t9);
         task10 = findViewById(R.id.t10);
         task11 = findViewById(R.id.t11);
+        task12 = findViewById(R.id.t12);
 
     }
 }
