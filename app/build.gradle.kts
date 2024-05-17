@@ -61,4 +61,11 @@ dependencies {
     implementation("com.android.volley:volley:1.2.1")
     //implementation ("com.google.firebase:firebase-database:15.0.0")
     //implementation ("com.google.firebase:firebase-auth:15.1.0")
+
+
+
+    //location dependency
+    implementation ("com.google.android.gms:play-services-location:21.0.1")
+    implementation ("androidx.work:work-runtime:2.7.1")
+
 }

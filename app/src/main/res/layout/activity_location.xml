@@ -7,27 +7,57 @@
     android:layout_height="match_parent"
     tools:context=".main.Task13.Location"
     android:orientation="vertical"
+    android:layout_marginTop="56dp"
     >
 
-    <Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:titleTextColor="@color/black"
-        android:title="ToolBar"
-        android:background="@color/green">
 
-    </Toolbar>
 
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="120dp"
         android:text="Location"
         android:gravity="center"
         android:textSize="24dp"
         android:padding="9dp"
-        android:textStyle="bold">
+        android:textStyle="bold"
+        android:id="@+id/t13_text">
     </TextView>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sart service"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_margin="19dp"
+        android:id="@+id/t13Btn2">
+
+    </com.google.android.material.button.MaterialButton>
+
+
+
+    <TextView
+        android:id="@+id/deviceNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Device Name:"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:textSize="24dp"
+        android:padding="9dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/batteryPercentageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Battery Percentage:"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center"
+        android:textSize="24dp"
+        android:padding="9dp"
+        android:textStyle="bold"/>
 
 
 
