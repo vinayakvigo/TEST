@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.Insets;
@@ -28,6 +29,14 @@ public class SplashScreen extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Get a reference to the action bar
+        ActionBar actionBar = getSupportActionBar();
+
+        // Hide the action bar
+        if (actionBar != null) {
+            actionBar.hide();
+        }
 
         setInitialTask();
         new Handler().postDelayed(new Runnable() {
