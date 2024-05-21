@@ -23,6 +23,8 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 
+import java.util.concurrent.Executors;
+
 public class LocationService extends Service {
     private static final String TAG = "LocationService";
     private static final String CHANNEL_ID = "LocationServiceChannel";
@@ -33,11 +35,13 @@ public class LocationService extends Service {
     private static final String ACTION_STOP_SERVICE = "com.example.test.ACTION_STOP_SERVICE";
     // Define your action string here
 
+    private AppDatabase db;
 
 
     @Override
     public void onCreate() {
         super.onCreate();
+        db = AppDatabase.getInstance(getApplicationContext());
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         locationCallback = new LocationCallback() {
@@ -46,7 +50,10 @@ public class LocationService extends Service {
                 if (locationResult != null) {
                     double latitude = locationResult.getLastLocation().getLatitude();
                     double longitude = locationResult.getLastLocation().getLongitude();
+                    long timestamp = System.currentTimeMillis();
                     Log.d(TAG, "Latitude: " + latitude + ", Longitude: " + longitude);
+                    saveLocationToDatabase(latitude, longitude, timestamp);
+
                     // Here, you can send the location to a server or update the UI
                 }
             }
@@ -56,6 +63,12 @@ public class LocationService extends Service {
         startForeground(1, getNotification("Tracking location..."));
         startLocationUpdates();
     }
+
+    private void saveLocationToDatabase(double latitude, double longitude, long timestamp) {
+        LocationEntity location = new LocationEntity(latitude, longitude, timestamp);
+        Executors.newSingleThreadExecutor().execute(() -> db.locationDao().insert(location));
+    }
+
     /*private Notification getNotification() {
         Intent notificationIntent = new Intent(this, Location.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this,

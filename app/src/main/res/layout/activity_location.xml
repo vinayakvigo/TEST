@@ -9,10 +9,6 @@
     android:orientation="vertical"
     android:layout_marginTop="56dp"
     >
-
-
-
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="120dp"
@@ -59,6 +55,14 @@
         android:padding="9dp"
         android:textStyle="bold"/>
 
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Location"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_margin="19dp"
+        android:id="@+id/t13Btn3">
 
-
+    </com.google.android.material.button.MaterialButton>
 </LinearLayout>

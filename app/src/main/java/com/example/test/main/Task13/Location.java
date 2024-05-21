@@ -37,7 +37,7 @@ public class Location extends AppCompatActivity {
 
 
     TextView locationTextView;
-    MaterialButton Btn1,Btn2;
+    MaterialButton Btn1,Btn3;
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
 
@@ -55,6 +55,7 @@ public class Location extends AppCompatActivity {
         });
         locationTextView = findViewById(R.id.t13_text);
         Btn1 = findViewById(R.id.t13Btn2);
+        Btn3 = findViewById(R.id.t13Btn3);
         Btn1.setOnClickListener(v -> {
             Intent intent = new Intent(this, LocationService.class);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -62,6 +63,8 @@ public class Location extends AppCompatActivity {
             }
             startService(intent);
         });
+
+        Btn3.setOnClickListener(v -> {startActivity(new Intent(this, LocationList.class));});
 
 
 
