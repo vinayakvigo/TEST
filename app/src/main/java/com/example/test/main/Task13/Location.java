@@ -11,6 +11,8 @@ import android.os.Build;
 import android.os.Bundle;
 
 
+import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -30,14 +32,27 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.material.button.MaterialButton;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class Location extends AppCompatActivity {
 
     private TextView deviceNameTextView;
     private TextView batteryPercentageTextView;
 
 
-    TextView locationTextView;
+    TextView locationTextView,timeTextView;
     MaterialButton Btn1,Btn3;
+
+    private Handler handler;
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
 
@@ -53,9 +68,12 @@ public class Location extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        handler = new Handler();
+
         locationTextView = findViewById(R.id.t13_text);
         Btn1 = findViewById(R.id.t13Btn2);
         Btn3 = findViewById(R.id.t13Btn3);
+        timeTextView = findViewById(R.id.t13timeTextView);
         Btn1.setOnClickListener(v -> {
             Intent intent = new Intent(this, LocationService.class);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -78,11 +96,76 @@ public class Location extends AppCompatActivity {
         // Register receiver for battery percentage updates
         registerReceiver(batteryPercentageReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
 
+        //updateCurrentTime();
+       // fetchServerTime();
+        new InternetTimeGetter(timeTextView).execute();
+
         CheckLocationPermission();
         getCurrentLocation();
 
 
+
     }
+
+
+    private void updateCurrentTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+        String currentTime = sdf.format(new Date());
+        timeTextView.setText("Current Time: " + currentTime);
+    }
+
+    private void fetchServerTime() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    URL url = new URL("http://worldtimeapi.org/api/timezone/Asia/Kolkata"); // Use the correct API endpoint for Indian time
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    connection.setRequestMethod("GET");
+
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    StringBuilder response = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        response.append(line);
+                    }
+                    reader.close();
+
+                    String serverTime = parseServerTime(response.toString());
+                    updateServerTimeTextView(serverTime);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Log.i("TimeError", "run: "+e);
+                    runOnUiThread(new Runnable() { // Since we're updating UI, use runOnUiThread to show Toast
+                        @Override
+                        public void run() {
+                            Toast.makeText(Location.this, "Failed to fetch server time", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+        }).start();
+    }
+
+    private String parseServerTime(String response) {
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            return jsonObject.getString("datetime");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "Unknown";
+        }
+    }
+
+    private void updateServerTimeTextView(final String serverTime) {
+        runOnUiThread(new Runnable() { // Ensure UI updates are done on the main thread
+            @Override
+            public void run() {
+                timeTextView.setText("Server Time: " + serverTime);
+            }
+        });
+    }
+
 
     // BroadcastReceiver to listen for battery percentage updates
     private BroadcastReceiver batteryPercentageReceiver = new BroadcastReceiver() {

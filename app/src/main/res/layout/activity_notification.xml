@@ -6,14 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".main.Task9.Notification"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="56dp">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:layout_margin="11dp"
         app:cardCornerRadius="19dp"
-        app:cardBackgroundColor="@color/material_dynamic_secondary95">
+        app:cardBackgroundColor="@color/green">
 
 
 
@@ -77,6 +78,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
                 android:textColor="@color/white"
                 android:textSize="19dp"
                 android:textStyle="bold">
